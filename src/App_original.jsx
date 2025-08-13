@@ -5,7 +5,7 @@ const LEVELS = [
   { id: "L3", title: "Level 3 — Liquidised", summary: "Smooth liquid that can be drunk from a cup; no chewing required.", examples: ["Congee blended with stock", "Lentil soup (blended)", "Fruit smoothie (no seeds)"] },
   { id: "L4", title: "Level 4 — Pureed", summary: "Extremely thick, smooth with no lumps; holds shape on a spoon.", examples: ["Chicken curry purée", "Pumpkin purée", "Sardine purée"] },
   { id: "L5", title: "Level 5 — Minced & Moist", summary: "Small, moist, soft lumps (≤4mm adults); minimal chewing.", examples: ["Chicken porridge (minced)", "Tofu scramble", "Dhal with mashed potatoes"] },
-  { id: "L6", title: "Level 6 — Soft & Bite‑Sized", summary: "Soft, tender pieces  (≤15mm adults) that require some chewing.", examples: ["Steamed fish flakes", "Soft omelette cubes", "Braised tofu"] },
+  { id: "L6", title: "Level 6 — Soft & Bite‑Sized", summary: "Soft, tender pieces (≤15mm adults) that require some chewing.", examples: ["Steamed fish flakes", "Soft omelette cubes", "Braised tofu"] },
   { id: "L7", title: "Level 7 — Regular / Easy to Chew", summary: "Normal food texture; softer/easier to chew variations if needed.", examples: ["Shredded chicken", "Steamed veg (soft)", "Soft fruits"] },
 ];
 
@@ -144,76 +144,35 @@ export default function TMDRMicrosite() {
 
       <main className="mx-auto max-w-6xl p-4">
         {active === "home" && (
-          <div className="space-y-12">
-            {/* Hero Section */}
-            <div className="grid gap-8 md:grid-cols-2 items-center">
-              <div>
-                <h1 className="text-4xl font-bold leading-tight text-gray-900">
-                  Nutrition Made Beautiful, One Texture at a Time
-                </h1>
-                <p className="mt-4 text-lg text-gray-600">
-                  Delicious, safe, and visually appealing meals for every dietary need.
-                </p>
-                <button className="mt-6 rounded-lg bg-amber-500 px-5 py-3 text-white font-semibold hover:bg-amber-600">
-                  Explore Textures
-                </button>
-              </div>
-              <div>
-                <img
-                  src="/images/hero-puree.png" // place your uploaded image here
-                  alt="Bowl of purée"
-                  className="rounded-lg shadow-lg w-full"
-                />
-              </div>
-            </div>
-
-            {/* Texture Levels */}
-            <div className="grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  img: "/images/level4.png",
-                  title: "Level 4 – Purée",
-                  desc: "Smooth, uniform consistency. Requires no chewing, ideal for safe swallowing."
-                },
-                {
-                  img: "/images/level5.png",
-                  title: "Level 5 – Minced & Moist",
-                  desc: "Soft, moist texture with small, uniform pieces. Easy to chew and swallow."
-                },
-                {
-                  img: "/images/level6.png",
-                  title: "Level 6 – Soft & Bite-Sized",
-                  desc: "Tender pieces cut to 1.5 cm. Minimal chewing needed, full of flavor."
-                }
-              ].map((item, i) => (
-                <div key={i} className="bg-white rounded-xl shadow-sm p-5 text-center">
-                  <img src={item.img} alt={item.title} className="mx-auto rounded-lg mb-4" />
-                  <h3 className="font-semibold text-lg">{item.title}</h3>
-                  <p className="mt-2 text-sm text-gray-600">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Enhance Your Meals */}
-            <div>
-              <h2 className="text-center text-2xl font-bold mb-6">Enhance Your Meals</h2>
-              <div className="grid gap-6 md:grid-cols-4">
-                {[
-                  ["Enhance plating for appeal", "🍽️"],
-                  ["Add vibrant colors", "🎨"],
-                  ["Shape foods for familiarity", "🌸"],
-                  ["Utilize molds and piping bags", "🛠️"]
-                ].map(([text, icon], i) => (
-                  <div key={i} className="bg-white rounded-xl shadow-sm p-5 text-center">
-                    <div className="text-4xl mb-3">{icon}</div>
-                    <p className="text-sm font-medium text-gray-700">{text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            <SectionCard title="Start here (placeholder)">
+              <p>
+                This microsite is a **placeholder** scaffold. Replace text, images, and
+                links with your real content as you build the guidebook.
+              </p>
+              <ul className="mt-3 list-disc pl-5">
+                <li>Aligned to IDDSI Levels 3–7</li>
+                <li>Locally adapted Malaysian examples</li>
+                <li>Caregiver‑friendly charts & meal plans</li>
+              </ul>
+            </SectionCard>
+            <SectionCard title="What’s inside">
+              <ul className="space-y-2">
+                <li>• IDDSI level definitions with local food examples</li>
+                <li>• Safety & texture testing methods (spoon/fork)</li>
+                <li>• 10–15 starter recipes by level</li>
+                <li>• Printable caregiver tools</li>
+              </ul>
+            </SectionCard>
+            <SectionCard title="How to use this scaffold">
+              <ol className="list-decimal pl-5">
+                <li>Edit the placeholder arrays (LEVELS, RECIPES, TOOLS).</li>
+                <li>Add your photos and PDFs; update links.</li>
+                <li>Publish via Netlify/GitHub Pages when ready.</li>
+              </ol>
+            </SectionCard>
           </div>
         )}
-
 
         {active === "iddsi" && (
           <div className="space-y-4">
