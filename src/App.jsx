@@ -363,7 +363,7 @@ export default function TMDRMicrosite() {
           <div className="grid gap-4 md:grid-cols-3">
             <SectionCard title="About the author (placeholder)">
               <p>
-                Test Edit Push
+                Test Edit Push 202508141041
                 Clinical dietitian (3 years) with experience in hospital MNT, KPI projects,
                 and nutrition copywriting. Passionate about safe swallowing and dignified eating.
               </p>
