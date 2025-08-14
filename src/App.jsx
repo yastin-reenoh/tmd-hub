@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import HandoutsPage from "./components/HandoutsPage";
 
 // --- Simple placeholder data you can replace later ---
 const LEVELS = [
@@ -7,6 +8,16 @@ const LEVELS = [
   { id: "L5", title: "Level 5 — Minced & Moist", summary: "Small, moist, soft lumps (≤4mm adults); minimal chewing.", examples: ["Chicken porridge (minced)", "Tofu scramble", "Dhal with mashed potatoes"] },
   { id: "L6", title: "Level 6 — Soft & Bite‑Sized", summary: "Soft, tender pieces  (≤15mm adults) that require some chewing.", examples: ["Steamed fish flakes", "Soft omelette cubes", "Braised tofu"] },
   { id: "L7", title: "Level 7 — Regular / Easy to Chew", summary: "Normal food texture; softer/easier to chew variations if needed.", examples: ["Shredded chicken", "Steamed veg (soft)", "Soft fruits"] },
+];
+
+export const HANDOUTS = [
+  { level: 0, title: "Thin Liquids", filename: "level0_thin_liquid_adult.pdf" },
+  { level: 1, title: "Slightly Thick", filename: "level1_slightly_thick_adult.pdf" },
+  { level: 2, title: "Mildly Thick", filename: "level2_mildly_thick_adult.pdf" },
+  { level: 3, title: "Moderately Thick (Liquidised)", filename: "level3_moderately_thick_adult.pdf" },
+  { level: 4, title: "Extremely Thick (Pureed)", filename: "level4_pureed_adult.pdf" },
+  { level: 5, title: "Minced & Moist", filename: "level5_minced_moist_adult.pdf" },
+  { level: 6, title: "Soft & Bite-Sized", filename: "level6_soft_bite_sized_adult.pdf" },
 ];
 
 const RECIPES = [
@@ -123,6 +134,7 @@ export default function TMDRMicrosite() {
               ["safety", "Safety & Testing"],
               ["recipes", "Recipes"],
               ["tools", "Caregiver Tools"],
+              ["handouts", "Patient Handouts"],
               ["about", "About"],
             ].map(([key, label]) => (
               <li key={key}>
@@ -146,7 +158,7 @@ export default function TMDRMicrosite() {
         {active === "home" && (
           <div className="space-y-12">
             {/* Hero Section */}
-            <div className="grid gap-8 md:grid-cols-2 items-center">
+            {/* <div className="grid gap-8 md:grid-cols-2 items-center">
               <div>
                 <h1 className="text-4xl font-bold leading-tight text-gray-900">
                   Nutrition Made Beautiful, One Texture at a Time
@@ -165,7 +177,42 @@ export default function TMDRMicrosite() {
                   className="rounded-lg shadow-lg w-full"
                 />
               </div>
-            </div>
+            </div> */}
+
+            {/* Full-width Hero */}
+            <section className="relative overflow-clip">
+              {/* Background image */}
+              <div className="relative h-[clamp(320px,55vw,520px)]">
+                <img
+                  src="/images/hero-puree.png"
+                  alt="Bowl of purée"
+                  className="w-full h-full object-cover saturate-[1.05] contrast-[1.02]"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[rgba(250,247,243,0.88)] via-[rgba(250,247,243,0.58)] to-[rgba(250,247,243,0)]" />
+              </div>
+
+              {/* Hero content */}
+              {/* <div className="absolute inset-0 grid place-content-center px-4"> */}
+              <div className="absolute inset-0 grid items-center px-10 md:px-24 lg:px-32">
+                <div className="max-w-xl">
+                  <div>
+                    <h1 className="font-['Playfair_Display',Georgia,serif] text-[clamp(32px,5vw,56px)] leading-[1.1] mb-[14px] max-w-[16ch]">
+                      Nutrition Made Beautiful, One Texture at a Time
+                    </h1>
+                    <p className="mb-[22px] max-w-[42ch]">
+                      Delicious, safe, and visually appealing meals for every dietary need.
+                    </p>
+                    <a
+                      href="#"
+                      className="inline-flex items-center gap-[10px] px-[18px] py-[12px] rounded-lg font-bold no-underline bg-[#e1b100] text-[#2c221d] shadow-md transition-transform hover:-translate-y-[1px]"
+                    >
+                      Explore Textures
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
 
             {/* Texture Levels */}
             <div className="grid gap-6 md:grid-cols-3">
@@ -357,6 +404,10 @@ export default function TMDRMicrosite() {
               </ul>
             </SectionCard>
           </div>
+        )}
+
+        {active === "handouts" && (
+          <HandoutsPage /> // <-- Render the HandoutsPage here
         )}
 
         {active === "about" && (
